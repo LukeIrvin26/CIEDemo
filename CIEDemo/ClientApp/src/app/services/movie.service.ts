@@ -32,6 +32,7 @@ export class MovieService {
     return this.http.delete(`${this._baseUrl}/${id}`);
   }
 
+  // in the case of the movies, we don't want to suppress the error in the service unlike the login (to tell if login failed)
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);

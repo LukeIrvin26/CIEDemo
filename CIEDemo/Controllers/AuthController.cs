@@ -15,6 +15,7 @@ namespace CIEDemo.Controllers
     [ApiController]
     public class AuthController : Controller
     {
+        // POST: api/auth/login
         [HttpPost, Route("login")]
         public IActionResult Login([FromBody]LoginModel user)
         {
@@ -23,8 +24,10 @@ namespace CIEDemo.Controllers
                 return BadRequest("Invalid client request");
             }
 
+            // using hardcoded username and password for the sake of simplicity, real world examples would of course never have this
             if (user.UserName == "johndoe" && user.Password == "cie2021")
             {
+                // configuration of JWT options, this is also where if you wanted to do role-based authentication, you could configure that via the claims property
                 var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@12345"));
                 var signingCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
 
@@ -32,10 +35,11 @@ namespace CIEDemo.Controllers
                     issuer: "http://localhost:61654",
                     audience: "http://localhost:61654",
                     claims: new List<Claim>(),
-                    expires: DateTime.Now.AddMinutes(5),
+                    expires: DateTime.Now.AddMinutes(20),
                     signingCredentials: signingCredentials
                 );
 
+                // creation of JWT token, using above options
                 var tokenString = new JwtSecurityTokenHandler().WriteToken(tokenOptions);
 
                 return Ok(new { Token = tokenString });

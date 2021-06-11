@@ -10,6 +10,7 @@ export function tokenGetter() {
   return localStorage.getItem('jwt');
 }
 
+// this is where the auth guard is applied to the routes we don't want unauthorized access to
 const routes: Routes = [
   { path: '', redirectTo: '/movies', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path: 'user', component: UserComponent, canActivate: [AuthGuardService] }
 ];
 
+// instantiates and configures both the app routes and the jwt module that is used by the jwt auth process
 @NgModule({
   imports: [RouterModule.forRoot(routes),
     JwtModule.forRoot({

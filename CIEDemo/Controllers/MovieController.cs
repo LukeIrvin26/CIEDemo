@@ -15,20 +15,23 @@ namespace CIEDemo.Controllers
     [ApiController]
     public class MovieController : ControllerBase
     {
+        // several of the CRUD operations listed here are never used, but are here for completion/extendability
         private readonly IRepository _repository;
 
+        // constructor leverages the repository that is configured at startup to use the IRepository interface
         public MovieController(IRepository repository)
         {
             _repository = repository;
         }
 
-        // GET: api/Movie
+        // GET: api/movie
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Movie>>> MovieList()
         {
             return await _repository.SelectAll<Movie>();
         }
 
+        // GET: api/movie/id
         [HttpGet("{id}")]
         public async Task<ActionResult<Movie>> GetMovie(long id)
         {
@@ -42,6 +45,7 @@ namespace CIEDemo.Controllers
             return model;
         }
 
+        // PUT: api/movie/id/model
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateMovie(long id, Movie model)
         {
@@ -55,6 +59,7 @@ namespace CIEDemo.Controllers
             return NoContent();
         }
 
+        // POST: api/movie
         [HttpPost]
         public async Task<ActionResult<Movie>> InsertMovie([FromBody]Movie model)
         {
@@ -62,6 +67,7 @@ namespace CIEDemo.Controllers
             return CreatedAtAction("GetMovie", new { id = model.ID }, model);
         }
 
+        // DELETE: api/movie/id
         [HttpDelete("{id}")]
         public async Task<ActionResult<Movie>> DeleteMovie(long id)
         {

@@ -10,9 +10,7 @@ import { UserComponent } from './user/user.component';
 import { LoginComponent } from './login/login.component';
 import { AuthInterceptorService } from './interceptors/auth-interceptor.service';
 
-
-
-
+// the providers section is where the Auth Interceptor is applied, so that HTTP Requests can be caught
 @NgModule({
   declarations: [
     AppComponent,

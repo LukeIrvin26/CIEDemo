@@ -8,11 +8,13 @@ import { JwtHelperService } from '@auth0/angular-jwt';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  // angular font awsome components
   faVideo = faVideo;
   faUserNinja = faUserNinja;
 
   constructor(private jwtHelper: JwtHelperService) { }
 
+  // this is used to control what parts of the website are shown
   isUserAuthenticated() {
     const token = localStorage.getItem('jwt');
 

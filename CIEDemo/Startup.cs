@@ -32,9 +32,14 @@ namespace CIEDemo
                 configuration.RootPath = "ClientApp/dist";
             });
 
+            // configures EF DbContext Injection
             string connectionString = Configuration.GetConnectionString("default");
             services.AddDbContext<AppDBContext>(c => c.UseSqlServer(connectionString));
+
+            // sets the interface relationship
             services.AddScoped<IRepository, Repository<AppDBContext>>();
+
+            // adds the authentication and sets the signing key that is used to encrypt JWT tokens later
             services.AddAuthentication(opt =>
             {
                 opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -73,8 +78,12 @@ namespace CIEDemo
             }
 
             app.UseRouting();
+
+            // needed for the JWT authentication as well as the authorize attributes
             app.UseAuthentication();
             app.UseAuthorization();
+
+            // sets the routes that api endpoints will use
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

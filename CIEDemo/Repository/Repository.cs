@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace CIEDemo.Repository
 {
+    // EF functions to fetch/set..etc data from the database
     public class Repository<TDbContext> : IRepository where TDbContext : DbContext
     {
         protected TDbContext dbContext;

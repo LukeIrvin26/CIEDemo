@@ -11,3 +11,9 @@ Building the app *SHOULD* install the NuGet packages as well, but if not, runnin
 You will need to run `npm install` from a command line in the `ClientApp` folder, so that all the npm packages used are installed properly.
 
 Start it up in debug mode in Visual Studio and test away!!
+
+Sample login is as follows:
+
+username: `johndoe`
+
+pass: `cie2021`

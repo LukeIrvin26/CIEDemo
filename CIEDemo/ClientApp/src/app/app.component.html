@@ -4,7 +4,8 @@
       <div class="row">
         <div class="col-sm-8 col-md-7 py-4">
           <h4 class="text-white">CIE Movie App</h4>
-          <p class="text-muted">This application features an Angular front-end that interfaces with a C# Web API to pull a sample movie database stored in a SQL Server 2019 Database</p>
+          <p class="text-muted">This application features an Angular front-end that uses HTML5 and CSS (with the Bootstrap 5 framework) to create views. This front-end communicates with a C# Web API to pull a sample movie database stored in a SQL Server 2019 Database.
+          Authentication is performed using JWT Authentication, and Entity Framework is used to model and interface with the Database. I tried to use as much abstraction as I could, and added reusability and potential for expansion throughout.</p>
         </div>
         <div class="col-sm-4 offset-md-1 py-4" *ngIf="isUserAuthenticated()">
           <div class="text-white h4">
@@ -34,3 +35,17 @@
 <main>
   <router-outlet></router-outlet>
 </main>
+<footer class="text-muted py-5">
+  <div class="container">
+    <p class="float-end mb-1 mx-2">
+      <a href="mailto:luke.irvin21@gmail.com">Email Me!</a>
+    </p>
+    <p class="float-end mb-1 mx-2">
+      <a href="https://github.com/LukeIrvin26/random-game-picker">My NodeJS Random Game Picker</a>
+    </p>
+    <p class="float-end mb-1 mx-2" >
+      <a href="https://www.linkedin.com/in/luke-irvin-b57933a4/">My LinkedIn</a>
+    </p>
+    <p class="mb-1">Made for CIE Coding Challenge by Luke Irvin.</p>
+  </div>
+</footer>

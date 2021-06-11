@@ -17,6 +17,8 @@ namespace CIEDemo.Models
 
         public DbSet<User> users { get; set; }
 
+        public DbSet<Movie> movies { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
             base.OnModelCreating(modelBuilder);
         }

@@ -1,0 +1,19 @@
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row row-cols-3">
+      <div class="col p-2" *ngFor="let movie of movieList">
+        <div class="card shadow-sm h-100">
+          <img class="card-img-top" src="{{movie.imagePath}}" alt="Movie Art" crossorigin="anonymous" />
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">{{movie.title}}</h5>
+            <p class="card-text">{{movie.description}}</p>
+            <a href="{{movie.imdbLink}}" class="btn btn-outline-primary mt-auto">View on IMDB</a>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">{{movie.runtime}}</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

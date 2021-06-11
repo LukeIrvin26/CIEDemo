@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="card w-50 mx-auto mt-5">
+    <div class="card-body">
+      <form>
+        <h2 class="text-center">Log In</h2>
+        <div class="mb-3">
+          <label for="userName" class="form-label">Username</label>
+          <input type="text" class="form-control" placeholder="Username" required="required" #userName id="userName" />
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" placeholder="Password" required="required" #password id="password" />
+        </div>
+
+        <button type="button" class="btn btn-primary" (click)="login(userName.value, password.value)">Log in</button>
+        <div class="alert alert-danger alert-dismissable fade show" role="alert" *ngIf="invalidLogin">
+          <strong>Error:</strong> Invalid username or password.
+          <button type="button" class="btn-close float-end" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <div class="form-check mt-2">
+          <input type="checkbox" class="form-check-input" id="rememberMe" />
+          <label class="form-check-label" for="rememberMe">Remember me</label>
+        </div>
+        <p class="text-center"><a href="#">Create an Account</a></p>
+      </form>
+    </div>
+  </div>
+</div>

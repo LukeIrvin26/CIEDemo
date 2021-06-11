@@ -1,0 +1,36 @@
+<header>
+  <div class="collapse bg-dark" id="navbarHeader">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-md-7 py-4">
+          <h4 class="text-white">CIE Movie App</h4>
+          <p class="text-muted">This application features an Angular front-end that interfaces with a C# Web API to pull a sample movie database stored in a SQL Server 2019 Database</p>
+        </div>
+        <div class="col-sm-4 offset-md-1 py-4" *ngIf="isUserAuthenticated()">
+          <div class="text-white h4">
+            <strong>User Name&nbsp;</strong>
+            <fa-icon [icon]="faUserNinja"></fa-icon>
+          </div>
+          <ul class="list-unstyled">
+            <li><a href="#" [routerLink]="['/user']" class="text-white">Profile</a></li>
+            <li><a href="#" (click)="logOut()" class="text-white">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="navbar navbar-dark bg-dark shadow-sm">
+    <div class="container">
+      <div class="navbar-brand d-flex align-items-center">
+        <fa-icon [icon]="faVideo"></fa-icon>
+        <strong>&nbsp;Movie List</strong>
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" ara-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </div>
+</header>
+<main>
+  <router-outlet></router-outlet>
+</main>

@@ -15,8 +15,6 @@ namespace CIEDemo.Models
             _options = options;
         }
 
-        public DbSet<User> users { get; set; }
-
         public DbSet<Movie> movies { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) {

@@ -49,7 +49,7 @@ namespace CIEDemo
                     ValidateIssuerSigningKey = true,
                     ValidIssuer = "http://localhost:61654",
                     ValidAudience = "http://localhost:61654",
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration.GetValue<string>("Auth:secretKey")))
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@12345"))
                 };
             });
         }

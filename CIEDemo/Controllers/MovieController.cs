@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace CIEDemo.Controllers
 {
-    [Route("api/Movie")]
+    [Route("api/movie")]
     [Authorize]
     [ApiController]
     public class MovieController : ControllerBase

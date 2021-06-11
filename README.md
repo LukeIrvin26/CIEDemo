@@ -17,3 +17,5 @@ Sample login is as follows:
 username: `johndoe`
 
 pass: `cie2021`
+
+**NOTE**: The user profile page is a template only, no functionality is added. 
